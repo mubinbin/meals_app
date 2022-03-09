@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './category_meal_screen.dart';
+
 class CategoryItem extends StatelessWidget {
   final String itemTitle;
   final String itemId;
@@ -12,22 +14,32 @@ class CategoryItem extends StatelessWidget {
     required this.catColor,
   }) : super(key: key);
 
+  void _selectCategory(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext ctx) => const CatMealScreen(),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-          colors: <Color>[catColor.withOpacity(0.5), catColor],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+    return InkWell(
+      onTap: () => _selectCategory(context),
+      splashColor: Theme.of(context).primaryColor,
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          gradient: LinearGradient(
+            colors: <Color>[catColor.withOpacity(0.5), catColor],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
-      ),
-      // borderRadius: BorderRadiusGeometry(),),),),
-      child: Text(
-        itemTitle,
-        style: Theme.of(context).textTheme.headline6,
+        // borderRadius: BorderRadiusGeometry(),),),),
+        child: Text(
+          itemTitle,
+          style: Theme.of(context).textTheme.headline6,
+        ),
       ),
     );
   }

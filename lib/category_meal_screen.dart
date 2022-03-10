@@ -12,7 +12,7 @@ class CatMealScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(itemTitle)),
-      // TODO: add more details of this page
+      // TODO: make listview for the body
       body: Text(itemId),
     );
   }

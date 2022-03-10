@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/home", //default is "/"
       routes: {
-        "/home": (ctx) => const CategoriesScreen(),
-        "/category-meal": (ctx) => const CatMealScreen()
+        "/home": (BuildContext ctx) => const CategoriesScreen(),
+        "/category-meal": (BuildContext ctx) => const CatMealScreen()
       },
     );
   }

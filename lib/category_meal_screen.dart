@@ -5,10 +5,15 @@ class CatMealScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+    String itemTitle = args["title"] as String;
+    String itemId = args["id"] as String;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('title1')),
+      appBar: AppBar(title: Text(itemTitle)),
       // TODO: add more details of this page
-      body: const Text('meal details placeholder'),
+      body: Text(itemId),
     );
   }
 }

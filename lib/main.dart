@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './category_meal_screen.dart';
+import 'screens/category_meal_screen.dart';
 
-import 'categories_screen.dart';
+import 'screens/categories_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(

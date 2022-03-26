@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 
-import '../data/test_meals.dart';
-
 class MealItem extends StatelessWidget {
   final String title;
   final String imageUrl;
@@ -50,7 +48,7 @@ class MealItem extends StatelessWidget {
     return InkWell(
       //TODO need to navigate to the meal details page
       onTap: null,
-      child: Card(
+        child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),

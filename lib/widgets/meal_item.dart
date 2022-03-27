@@ -49,11 +49,7 @@ class MealItem extends StatelessWidget {
     Navigator.of(context).pushNamed(
       "/meal-detail",
       // TODO: need to think of what info need to pass and how
-      arguments: {
-        "id": mealId,
-        "title": mealTitle,
-        "url": mealImageUrl,
-      },
+      arguments: mealId,
     );
   }
 

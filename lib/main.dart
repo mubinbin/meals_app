@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
@@ -23,17 +22,23 @@ class MyApp extends StatelessWidget {
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: "Raleway",
         textTheme: ThemeData.light().textTheme.copyWith(
-          bodyText1: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          bodyText2: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          headline6: const TextStyle(fontFamily: "RobotoCondensed", fontSize: 20, fontWeight: FontWeight.bold)
-        ),
+            bodyText1: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+            bodyText2: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+            headline6: const TextStyle(
+                fontFamily: "RobotoCondensed",
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
       ),
       initialRoute: "/home", //default is "/"
       routes: {
         "/home": (BuildContext ctx) => const CategoriesScreen(),
         "/category-meal": (BuildContext ctx) => const CatMealScreen(),
-        "/meal-detail" : (BuildContext ctx) => const MealDetailScreen(),
+        "/meal-detail": (BuildContext ctx) => const MealDetailScreen(),
       },
+      // TODO: need to setup a unknow route page
+      onUnknownRoute: (settings) => MaterialPageRoute(
+        builder: (BuildContext cxt) => const CategoriesScreen(),
+      ),
     );
   }
 }

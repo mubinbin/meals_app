@@ -9,15 +9,11 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> args =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-
-    String mealId = args["id"] as String;
-    String mealTitle = args["title"] as String;
+    final String mealId = ModalRoute.of(context)!.settings.arguments as String;
 
     return Scaffold(
-      appBar: AppBar(title: Text(mealTitle)),
-      body: Center(child: Text("$mealTitle has id: $mealId")),
+      appBar: AppBar(title: const Text("placeholder")),
+      body: Center(child: Text("meal has id: $mealId")),
     );
   }
 }

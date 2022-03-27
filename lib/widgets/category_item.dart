@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String itemTitle;
-  final String itemId;
-  final Color catColor;
+  final String categoryTitle;
+  final String categoryId;
+  final Color categoryColor;
 
   const CategoryItem({
     Key? key,
-    required this.itemId,
-    required this.itemTitle,
-    required this.catColor,
+    required this.categoryId,
+    required this.categoryTitle,
+    required this.categoryColor,
   }) : super(key: key);
 
   void _selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(
       "/category-meal",
-      arguments: {"id": itemId, "title": itemTitle},
+      arguments: {"id": categoryId, "title": categoryTitle},
     );
   }
 
@@ -29,14 +29,14 @@ class CategoryItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           gradient: LinearGradient(
-            colors: <Color>[catColor.withOpacity(0.5), catColor],
+            colors: <Color>[categoryColor.withOpacity(0.5), categoryColor],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
         // borderRadius: BorderRadiusGeometry(),),),),
         child: Text(
-          itemTitle,
+          categoryTitle,
           style: Theme.of(context).textTheme.headline6,
         ),
       ),

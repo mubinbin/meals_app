@@ -13,21 +13,24 @@ class CatMealScreen extends StatelessWidget {
 
     final Map<String, String> args =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    String itemTitle = args["title"] as String;
-    String itemId = args["id"] as String;
+    
+    String categoryTitle = args["title"] as String;
+    String categoryId = args["id"] as String;
+
     final List<Meal> mockMealsList =
-        TEST_MEALS.where((meal) => meal.categories.contains(itemId)).toList();
+        TEST_MEALS.where((meal) => meal.categories.contains(categoryId)).toList();
 
     return Scaffold(
-      appBar: AppBar(title: Text(itemTitle)),
+      appBar: AppBar(title: Text(categoryTitle)),
       body: ListView.builder(
         itemCount: mockMealsList.length,
         itemBuilder: (BuildContext ctx, int index) => MealItem(
+          mealId: mockMealsList[index].id,
           affordability: mockMealsList[index].affordability,
           complexity: mockMealsList[index].complexity,
           duration: mockMealsList[index].duration,
-          imageUrl: mockMealsList[index].imageUrl,
-          title: mockMealsList[index].title,
+          mealImageUrl: mockMealsList[index].imageUrl,
+          mealTitle: mockMealsList[index].title,
         ),
       ),
     );

@@ -21,9 +21,9 @@ class CategoriesScreen extends StatelessWidget {
         ),
         itemCount: TEST_CATEGORIES.length,
         itemBuilder: (BuildContext ctx, int index) => CategoryItem(
-            itemId: TEST_CATEGORIES[index].id,
-            itemTitle: TEST_CATEGORIES[index].title,
-            catColor: TEST_CATEGORIES[index].color),
+            categoryId: TEST_CATEGORIES[index].id,
+            categoryTitle: TEST_CATEGORIES[index].title,
+            categoryColor: TEST_CATEGORIES[index].color),
       ),
     );
   }

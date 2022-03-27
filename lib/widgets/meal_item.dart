@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 
 class MealItem extends StatelessWidget {
-  final String title;
-  final String imageUrl;
+  final String mealId;
+  final String mealTitle;
+  final String mealImageUrl;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
 
   const MealItem({
     Key? key,
-    required this.title,
-    required this.imageUrl,
+    required this.mealId,
+    required this.mealTitle,
+    required this.mealImageUrl,
     required this.duration,
     required this.complexity,
     required this.affordability,
@@ -43,12 +45,23 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  void _selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      "/meal-detail",
+      // TODO: need to think of what info need to pass and how
+      arguments: {
+        "id": mealId,
+        "title": mealTitle,
+        "url": mealImageUrl,
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      //TODO need to navigate to the meal details page
-      onTap: null,
-        child: Card(
+      onTap: () => _selectMeal(context),
+      child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -64,7 +77,7 @@ class MealItem extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    imageUrl,
+                    mealImageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.fill,
@@ -81,7 +94,7 @@ class MealItem extends StatelessWidget {
                       horizontal: 20,
                     ),
                     child: Text(
-                      title,
+                      mealTitle,
                       style: const TextStyle(
                         fontSize: 26,
                         color: Colors.white,
@@ -102,7 +115,7 @@ class MealItem extends StatelessWidget {
                     children: <Widget>[
                       const Icon(Icons.schedule),
                       const SizedBox(width: 6),
-                      Text( duration > 1? "$duration mins" : "$duration min"),
+                      Text(duration > 1 ? "$duration mins" : "$duration min"),
                     ],
                   ),
                   Row(

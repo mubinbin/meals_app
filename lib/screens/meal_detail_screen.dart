@@ -13,6 +13,9 @@ class MealDetailScreen extends StatelessWidget {
     final Meal selectedMeal =
         TEST_MEALS.firstWhere((meal) => meal.id == mealId);
 
+    String imagePath =
+        "assets/images/${selectedMeal.title.split(" ").join("_")}.jpg";
+
     return Scaffold(
       appBar: AppBar(title: Text(selectedMeal.title)),
       body: Column(
@@ -20,8 +23,8 @@ class MealDetailScreen extends StatelessWidget {
           SizedBox(
             height: 300,
             width: double.infinity,
-            child: Image.network(
-              selectedMeal.imageUrl,
+            child: Image.asset(
+              imagePath,
               fit: BoxFit.fill,
             ),
           ),

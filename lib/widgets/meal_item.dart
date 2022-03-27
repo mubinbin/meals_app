@@ -4,7 +4,7 @@ import 'package:meals_app/models/meal.dart';
 class MealItem extends StatelessWidget {
   final String mealId;
   final String mealTitle;
-  final String mealImageUrl;
+  final String mealImagePath;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
@@ -13,7 +13,7 @@ class MealItem extends StatelessWidget {
     Key? key,
     required this.mealId,
     required this.mealTitle,
-    required this.mealImageUrl,
+    required this.mealImagePath,
     required this.duration,
     required this.complexity,
     required this.affordability,
@@ -48,7 +48,6 @@ class MealItem extends StatelessWidget {
   void _selectMeal(BuildContext context) {
     Navigator.of(context).pushNamed(
       "/meal-detail",
-      // TODO: need to think of what info need to pass and how
       arguments: mealId,
     );
   }
@@ -72,8 +71,8 @@ class MealItem extends StatelessWidget {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.network(
-                    mealImageUrl,
+                  child: Image.asset(
+                    mealImagePath,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.fill,

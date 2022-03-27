@@ -29,7 +29,7 @@ class CatMealScreen extends StatelessWidget {
           affordability: mockMealsList[index].affordability,
           complexity: mockMealsList[index].complexity,
           duration: mockMealsList[index].duration,
-          mealImageUrl: mockMealsList[index].imageUrl,
+          mealImagePath: "assets/images/${mockMealsList[index].title.split(" ").join("_")}.jpg",
           mealTitle: mockMealsList[index].title,
         ),
       ),

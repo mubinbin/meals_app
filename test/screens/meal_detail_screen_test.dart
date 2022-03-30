@@ -13,6 +13,9 @@ void main() {
       ),
     );
 
+    final Image image = find.byType(Image).evaluate().first.widget as Image;
+    assert(image.image is AssetImage);
+    assert(image.image is! NetworkImage);
     expect(find.text("Ingredients"), findsOneWidget);
   });
 }
